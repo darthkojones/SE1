@@ -29,7 +29,7 @@ public class TestStudent {
         // initial names array
         //String[] randomNames = {"Adrian", "Tinsae", "Marc", "Athena", "Odin", "Luna", "Melinoe", "Konamiya", "Geralt of Rivia", "Lara Croft", "Ezio Auditore da Firenze", "Kratos", "Leonardo da Vinci", "Niccolo Machiavelli", "Rodrigo Borgia"};
        
-        // changed the names array to an ArrayList for easier removal of used names
+        // changed the names array to an ArrayList for easier removal of used names in case 2
         ArrayList<String> randomNames = new ArrayList<>();
         randomNames.add("Adrian");
         randomNames.add("Tinsae");
@@ -132,7 +132,7 @@ public class TestStudent {
                     String randomName = randomNames.get(rand.nextInt(randomNames.size()));
                     String randomGroup = randomGroups[rand.nextInt(randomGroups.length)];
                     char randomGender = randomGenders[rand.nextInt(randomGenders.length)].charAt(0);
-                    students[i] = new Student(randomName, randomGroup, rand.nextInt(11), i + 1, randomGender);
+                    students[i] = new Student(randomName, randomGroup, rand.nextInt(11), i + 1, randomGender); //will add the grade field later
                     
                     // let's add some random gradeds so we can have something to work with when calculating the average
                     int numOfGrades = rand.nextInt(10)+2; //generates between 2 and 10 grades for each student
@@ -200,7 +200,7 @@ public class TestStudent {
 }
 
         
-        
+        //This is the initial implementation of the student objects, which i then decided to randomize for the fun of experimentation
         
 //        Student student1 = new Student();
 //        System.out.println(student1.toString());
