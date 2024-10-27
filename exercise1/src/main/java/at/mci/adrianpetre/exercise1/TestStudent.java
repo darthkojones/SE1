@@ -7,9 +7,16 @@ import java.util.Scanner; //needed for the user input
 import java.util.Random; //needed for the random
 import java.util.ArrayList; //needed for dynamically removing names from the list
 
-
+/**
+ * the main function where we play around with generating random students 
+ * @author darth
+ */
 public class TestStudent {
-
+     /**
+     * main method used for testing of the Student class.
+     * 
+     * @param args Command line arguments
+     */
     public static void main(String[] args) {
 
         // let's create user input to let the user decide how many students to create
@@ -127,6 +134,8 @@ public class TestStudent {
         
         //decided to skip the whole case switching, since case 3 basically fulfills all of the assignment requirements
         
+        
+        //exercise 3 - THE RANDOM WAYYYYYYYY - you can seee the original implementation at the end, below
         for (int i = 0; i < numStudents; i++) {
                     // create the student objects similar to case 1
                     String randomName = randomNames.get(rand.nextInt(randomNames.size()));
@@ -156,7 +165,8 @@ public class TestStudent {
                     System.out.println(students[i].toString());
                 }
         
-        // look for students with the same Java proficiency
+        // exercise 4
+        // look for students with the same Java proficiency  
         if (numStudents > 1) {
             //we need at least 2 students to be able to compare them
             //we should iterate through the students and compare 
@@ -170,7 +180,7 @@ public class TestStudent {
                 for (int j = i + 1; j < numStudents; j++) {
                     boolean sameFluency = students[i].hasSameFluencyInJavaAs(students[j]);
                     if (sameFluency) {
-                        System.out.println("Student " + students[i].getName() + " and student " + students[j].getName() + 
+                        System.out.println("Student " + students[i].getName()+ " (ID " + students[i].getStudentId() + ")" + " and student " + students[j].getName()+" (ID " + students[j].getStudentId() + ")" + 
                                            " have the same proficiency of " + students[i].getProficiency() + ".");
                     } else {
                         //System.out.println("Student " + students[i].getName() + " (" + students[i].getProficiency() + ")" + 
@@ -181,6 +191,8 @@ public class TestStudent {
             }
         }
         
+        
+        // exercise 5
         // let's test equals() method to check if all students are the same
         if (numStudents > 1) {
             System.out.println("\nTesting equality between all students\n");
@@ -189,7 +201,7 @@ public class TestStudent {
             for (int i = 0; i < numStudents; i++) {
                 for (int j = i + 1; j < numStudents; j++) {
                     if (students[i].equals(students[j])) {
-                        System.out.println("Student " + students[i].getName() + " is the same as student " + students[j].getName() + ".");
+                        System.out.println("Student " + students[i].getName()+" (ID " + students[i].getStudentId() + ")" + " is the same as student " + students[j].getName()+" (ID " + students[j].getStudentId() + ")" + ".");
                     } else {
                        // System.out.println("Student " + students[i].getName() + " is not the same as student " + students[j].getName() + ".");
                     }
@@ -199,7 +211,32 @@ public class TestStudent {
     }
 }
 
+ 
         
+        //exercise 9 
+
+    
+//      sInt = null;  -> CORRECT
+//      this sets the reference sInt to null, meaning it points to no object at all.
+    
+//      sInt = student;  -> CORRECT
+//      this assigns the reference sInt to point to the student object,  this is correct because Student implements StudentInterface
+    
+//      student = sInt; -> WRONG
+//      this causes a compilation error because sInt is of type StudentInterface and it has to be assigned to a Student object
+    
+//      sInt = new StudentInterface(); -> WRONG
+//      this causes a compilation error since interfaces cannot be instantiated directly
+    
+//      sInt.someMethodInStudentInterface(); -> CORRECT-ish
+//      this will work IF someMethodInStudentInterface() is defined in the interface and implemented in the Student class
+
+
+
+
+
+
+        //exercise 3
         //This is the initial implementation of the student objects, which i then decided to randomize for the fun of experimentation
         
 //        Student student1 = new Student();
@@ -218,7 +255,4 @@ public class TestStudent {
 //        student3.setProficiency(9);
 //        student3.setGroup("Group B");
 //        student3.setGender('F');
-//        System.out.println(student3.toString());    
-//        
-        
-   
+//        System.out.println(student3.toString());   

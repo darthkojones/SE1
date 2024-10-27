@@ -5,12 +5,12 @@
 package at.mci.adrianpetre.exercise1;
 import java.util.ArrayList;
 /**
- *
+ * represents a student with attributes like name, group, proficiency in java
  * @author darth
  */
 public class Student {
     
-    // static field to keep track of the number of Student objects created
+    // static field to keep track of the number of Student objects created for exercise 7
     private static int studentCount = 0;
     
     // data fields
@@ -19,10 +19,11 @@ public class Student {
     private int proficiencyInJava;
     private int studentID;
     private char gender;
-    private ArrayList<Float> grades; // To store grades for all courses taken by a student
+    private ArrayList<Float> grades; // stores grades for all courses taken by a student for exercise 6
     
-    // constructor 
-    // default aka no arguments
+     /**
+     * Default constructor aka initializes with default values
+     */
     public Student(){
         this.name = "HE WHO SHALL NOT BE NAMED";
         this.group = "prolly in DiBSE23";
@@ -33,21 +34,31 @@ public class Student {
         incrementStudentCount();
     }     
      
-    //constructor
-    //with fields passed as arguments
+    /**
+     * Constructor with all fields.
+     * 
+     * @param name the name of the student
+     * @param group the group the student belongs to
+     * @param proficiencyInJava the Java proficiency level of the student
+     * @param studentID the student ID
+     * @param gender the gender of the student
+     */
     
      public Student(String name, String group, int proficiencyInJava, int studentID, char gender){
         this.name = name;
         this.group = group;
         this.proficiencyInJava = proficiencyInJava;
-        this.studentID = studentID; //can this be null?
-        this.gender = gender; // unknown but it's 2024, you can't assume gender anymore
+        this.studentID = studentID; 
+        this.gender = gender; 
         this.grades = new ArrayList<>();
         incrementStudentCount();
     }   
      
-     /*does a constructor with maybe only student name and ID make sense?
-     * as it is maybe the information we care most about at first
+    /**
+     * Constructor with only name and student ID.
+     * 
+     * @param name the name of the student
+     * @param studentID the student ID
      */
      
     public Student (String name, int studentID){
@@ -67,56 +78,108 @@ public class Student {
     }
     
     //getters and setters 
+    
+    /**
+     * Gets the student's name.
+     * @return the student's name
+     */
     public String getName(){
         return name;
-        }
+    }
     
+    /**
+     * Sets the student's name.
+     * @param name the new name for the student
+     */
     public void setName(String name){
         this.name = name;
     }
     
+    /**
+     * Gets the student's group.
+     * @return the student's group
+     */
     public String getGroup(){
         return group;
     }
     
+    /**
+     * Sets the student's group.
+     * @param group the new group for the student
+     */
     public void setGroup(String group){
         this.group = group;
     }
     
+    /**
+     * Gets the student's Java proficiency.
+     * @return the student's Java proficiency
+     */
     public int getProficiency(){
         return proficiencyInJava;
     }
     
+    /**
+     * Sets the student's Java proficiency.
+     * @param proficiencyInJava the new Java proficiency level
+     */
     public void setProficiency(int proficiencyInJava){
         this.proficiencyInJava = proficiencyInJava;
     }
     
+    /**
+     * Gets the student ID.
+     * @return the student's ID
+     */
     public int getStudentId(){
         return studentID;
     }
     
+    /**
+     * Sets the student ID.
+     * @param studentID the new student ID
+     */
     public void setStudentId(int studentID){
         this.studentID = studentID;
     }
     
+    /**
+     * Gets the student's gender.
+     * @return the student's gender
+     */
     public char getGender(){
         return gender;
     }
     
+    /**
+     * Sets the student's gender.
+     * @param gender the new gender
+     */
     public void setGender(char gender) {
         this.gender = gender;
     }
     
+    /**
+     * Compares the Java proficiency with another student.
+     * @param anotherStudent another student to compare against
+     * @return true if both students have the same Java proficiency level, false otherwise
+     */
     public boolean hasSameFluencyInJavaAs(Student anotherStudent){
         return this.proficiencyInJava == anotherStudent.proficiencyInJava;
     }
     
-    
+    /**
+     * Adds a grade for a course.
+     * @param grade the grade to add
+     */
     public void addGrade(float grade) {
         this.grades.add(grade);
     }
     
-    
+    /**
+     * Calculates the average grade of the student.
+     * @return the average grade, rounded to 1 decimal place
+     */
     public float averageNote() {
         if (grades.isEmpty()) {
             return 0.0f; // if no grades are present, return 0.0 as average
@@ -125,8 +188,7 @@ public class Student {
         for (float grade : grades) {
             sum += grade;
         }
-        //return sum / grades.size();
-         return Math.round((sum / grades.size()) * 10) / 10.0f; // round to 1 decimal place
+        return Math.round((sum / grades.size()) * 10) / 10.0f; // round to 1 decimal place
     }
     
     @Override
@@ -139,7 +201,11 @@ public class Student {
                 +"\nAverage Grade :" + averageNote();
     }
     
-    // easiest way to check if same student
+    /**
+     * Checks if this student is the same as another student based on student ID.
+     * @param obj the object to compare against
+     * @return true if the student IDs are the same, false otherwise
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -151,6 +217,4 @@ public class Student {
         Student student = (Student) obj;
         return studentID == student.studentID;
     }
-    
-    
 }
