@@ -17,6 +17,7 @@ public class Student {
     private int studentID;
     private char gender;
     
+    
     // constructor 
     // default aka no arguments
     public Student(){
@@ -89,6 +90,10 @@ public class Student {
     
     public void setGender(char gender) {
         this.gender = gender;
+    }
+    
+    public boolean hasSameFluencyInJavaAs(Student anotherStudent){
+        return this.proficiencyInJava == anotherStudent.proficiencyInJava;
     }
     
     @Override
