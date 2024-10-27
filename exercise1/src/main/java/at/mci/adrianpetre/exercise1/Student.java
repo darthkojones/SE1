@@ -98,7 +98,7 @@ public class Student {
     
     @Override
     public String toString(){
-        return "Name :" + this.name                 
+        return "\nName :" + this.name                 
                 +"\nGroup :" + this.group
                 +"\nStudent ID :" + this.studentID
                 +"\nProficiency :" + this.proficiencyInJava
