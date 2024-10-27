@@ -3,12 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package at.mci.adrianpetre.exercise1;
-
+import java.util.ArrayList;
 /**
  *
  * @author darth
  */
 public class Student {
+    
+    // static field to keep track of the number of Student objects created
+    private static int studentCount = 0;
     
     // data fields
     private String name;
@@ -16,7 +19,7 @@ public class Student {
     private int proficiencyInJava;
     private int studentID;
     private char gender;
-    
+    private ArrayList<Float> grades; // To store grades for all courses taken by a student
     
     // constructor 
     // default aka no arguments
@@ -26,6 +29,8 @@ public class Student {
         this.proficiencyInJava = 0; //maybe 1?
         this.studentID = 0; //can this be null?
         this.gender = 'U'; // unknown but it's 2024, you can't assume gender anymore
+        this.grades = new ArrayList<>();
+        incrementStudentCount();
     }     
      
     //constructor
@@ -37,6 +42,8 @@ public class Student {
         this.proficiencyInJava = proficiencyInJava;
         this.studentID = studentID; //can this be null?
         this.gender = gender; // unknown but it's 2024, you can't assume gender anymore
+        this.grades = new ArrayList<>();
+        incrementStudentCount();
     }   
      
      /*does a constructor with maybe only student name and ID make sense?
@@ -49,6 +56,14 @@ public class Student {
         this.group = "prolly in DiBSE23";
         this.proficiencyInJava = 0;
         this.gender = 'U';
+        this.grades = new ArrayList<>();
+        incrementStudentCount();
+    }
+    
+    // Static method to increment student count and print the current count
+    private static void incrementStudentCount() {
+        studentCount++;
+        System.out.println("\nNew Student added! There are a total of " + studentCount + " students.");
     }
     
     //getters and setters 
@@ -96,16 +111,46 @@ public class Student {
         return this.proficiencyInJava == anotherStudent.proficiencyInJava;
     }
     
+    
+    public void addGrade(float grade) {
+        this.grades.add(grade);
+    }
+    
+    
+    public float averageNote() {
+        if (grades.isEmpty()) {
+            return 0.0f; // if no grades are present, return 0.0 as average
+        }
+        float sum = 0;
+        for (float grade : grades) {
+            sum += grade;
+        }
+        //return sum / grades.size();
+         return Math.round((sum / grades.size()) * 10) / 10.0f; // round to 1 decimal place
+    }
+    
     @Override
     public String toString(){
         return "\nName :" + this.name                 
                 +"\nGroup :" + this.group
                 +"\nStudent ID :" + this.studentID
                 +"\nProficiency :" + this.proficiencyInJava
-                +"\nGender :" + this.gender;
+                +"\nGender :" + this.gender
+                +"\nAverage Grade :" + averageNote();
     }
     
-    
+    // easiest way to check if same student
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Student student = (Student) obj;
+        return studentID == student.studentID;
+    }
     
     
 }
