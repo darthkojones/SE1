@@ -138,7 +138,10 @@ public class TestStudent {
         //exercise 3 - THE RANDOM WAYYYYYYYY - you can seee the original implementation at the end, below
         for (int i = 0; i < numStudents; i++) {
                     // create the student objects similar to case 1
-                    String randomName = randomNames.get(rand.nextInt(randomNames.size()));
+                    //String randomName = randomNames.get(rand.nextInt(randomNames.size()));
+                    int nameIndex = rand.nextInt(randomNames.size());
+                    String randomName = randomNames.get(nameIndex);
+                    randomNames.remove(nameIndex);  // Remove the used name from the list
                     String randomGroup = randomGroups[rand.nextInt(randomGroups.length)];
                     char randomGender = randomGenders[rand.nextInt(randomGenders.length)].charAt(0);
                     students[i] = new Student(randomName, randomGroup, rand.nextInt(11), i + 1, randomGender); //will add the grade field later
@@ -156,9 +159,9 @@ public class TestStudent {
                     
                     // create two copies within the loop to test equals() method
                     if (i == numStudents - 2 && numStudents >= 3) {
-                        students[i] = students[1];  //copy of student 1
+                        students[i] = students[1];  //copy of student 2
                     } else if (i == numStudents - 1 && numStudents >= 3) {
-                        students[i] = students[2];  // copy of student 2
+                        students[i] = students[0];  // copy of student 1
                     }
 
                     // print each student out
