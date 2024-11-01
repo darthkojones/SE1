@@ -10,6 +10,7 @@ public class Student {
     
     // static field to keep track of the number of Student objects created for exercise 7
     private static int studentCount = 0;
+    private static int nextStudentID = 1;
     
     // data fields
     private String name;
@@ -29,6 +30,7 @@ public class Student {
         this.studentID = 0; //can this be null?
         this.gender = 'U'; // unknown but it's 2024, you can't assume gender anymore
         this.grades = new ArrayList<>();
+        this.studentID = getNextStudentID();
         incrementStudentCount();
     }     
      
@@ -49,6 +51,7 @@ public class Student {
         this.studentID = studentID; 
         this.gender = gender; 
         this.grades = new ArrayList<>();
+        this.studentID = getNextStudentID();
         incrementStudentCount();
     }   
      
@@ -66,9 +69,14 @@ public class Student {
         this.proficiencyInJava = 0;
         this.gender = 'U';
         this.grades = new ArrayList<>();
+        this.studentID = getNextStudentID();
         incrementStudentCount();
     }
     
+     // Static method to get the next available student ID
+     private static synchronized int getNextStudentID() {
+        return nextStudentID++;
+    }
     // Static method to increment student count and print the current count
     private static void incrementStudentCount() {
         studentCount++;
@@ -191,27 +199,50 @@ public class Student {
 
     public static Student createStudentFromConsoleInput() {
         Scanner scanner = new Scanner(System.in);
-        String name;
-        String group;
-        int proficiencyInJava;
-        int studentID;
-        char gender;
-    
-        // Prompt for name
-        System.out.print("Enter the student's name: ");
-        name = scanner.nextLine();
-    
-        // Prompt for group
-        System.out.print("Enter the student's group: ");
-        group = scanner.nextLine();
-    
-        // Prompt for proficiencyInJava with validation
+        Student newStudent = new Student(); // Create a new Student object
+
+        // prompt for name with validation (only letters and spaces)
+        while (true) {
+            System.out.print("Enter the student's name: ");
+            String nameInput = scanner.nextLine();
+            if (nameInput.matches("[a-zA-Z\\s]+")) {
+                newStudent.setName(nameInput);
+                break;
+            } else {
+                System.out.println("Invalid name. Please use only letters and spaces.");
+            }
+        }
+
+        // prompt for group selection
+        String[] randomGroups = {"Group A", "Group B", "Group C"};
+        System.out.println("Select the student's group:");
+        for (int i = 0; i < randomGroups.length; i++) {
+            System.out.println((i + 1) + ". " + randomGroups[i]);
+        }
+        while (true) {
+            System.out.print("Enter the number corresponding to the group: ");
+            String groupInput = scanner.nextLine();
+            try {
+                int groupChoice = Integer.parseInt(groupInput);
+                if (groupChoice >= 1 && groupChoice <= randomGroups.length) {
+                    newStudent.setGroup(randomGroups[groupChoice - 1]);
+                    break;
+                } else {
+                    System.out.println("Please enter a number between 1 and " + randomGroups.length + ".");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
+
+        // prompt for proficiencyInJava with validation
         while (true) {
             System.out.print("Enter the student's proficiency in Java (0-10): ");
             String proficiencyInput = scanner.nextLine();
             try {
-                proficiencyInJava = Integer.parseInt(proficiencyInput);
+                int proficiencyInJava = Integer.parseInt(proficiencyInput);
                 if (proficiencyInJava >= 0 && proficiencyInJava <= 10) {
+                    newStudent.setProficiency(proficiencyInJava);
                     break;
                 } else {
                     System.out.println("Please enter a number between 0 and 10.");
@@ -220,35 +251,43 @@ public class Student {
                 System.out.println("Invalid input. Please enter an integer between 0 and 10.");
             }
         }
-    
-        // Prompt for studentID with validation
-        while (true) {
-            System.out.print("Enter the student's ID: ");
-            String idInput = scanner.nextLine();
-            try {
-                studentID = Integer.parseInt(idInput);
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid integer ID.");
-            }
-        }
-    
-        // Prompt for gender with validation
+
+        // prompt for gender with validation
         while (true) {
             System.out.print("Enter the student's gender (M/F/U): ");
-            String genderInput = scanner.nextLine();
-            if (genderInput.length() == 1 && "MFU".contains(genderInput.toUpperCase())) {
-                gender = genderInput.toUpperCase().charAt(0);
+            String genderInput = scanner.nextLine().toUpperCase();
+            if (genderInput.length() == 1 && "MFU".contains(genderInput)) {
+                newStudent.setGender(genderInput.charAt(0));
                 break;
             } else {
                 System.out.println("Invalid input. Please enter 'M', 'F', or 'U'.");
             }
         }
-    
-        // Create and return the new Student object
-        Student newStudent = new Student(name, group, proficiencyInJava, studentID, gender);
+
+        // prompt the user to input 5 grades between 1 and 10
+        System.out.println("Please enter 5 grades for the student (between 1 and 10):");
+        for (int i = 0; i < 5; i++) {
+            while (true) {
+                System.out.print("Enter grade #" + (i + 1) + ": ");
+                String gradeInput = scanner.nextLine();
+                try {
+                    float grade = Float.parseFloat(gradeInput);
+                    if (grade >= 1 && grade <= 10) {
+                        newStudent.addGrade(grade);
+                        break;
+                    } else {
+                        System.out.println("Please enter a grade between 1 and 10.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter a number between 1 and 10.");
+                }
+            }
+        }
+
+
         return newStudent;
     }
+
     
     @Override
     public String toString(){

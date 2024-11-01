@@ -56,7 +56,8 @@ public class TestStudent {
 
         Random rand = new Random();
 
-
+        //print the student created from console input
+        System.out.println(inputStudent.toString());
          /*
          * some courses that a TA can teach for exercise 2.3
          */
@@ -74,8 +75,7 @@ public class TestStudent {
         PhDStudent phdStudent = new PhDStudent("Adrian", 69420, "AI Pornography- Fad or Future?", "Andrea Corradini", true);
         System.out.println(phdStudent.toString());
 
-        //print the student created from console input
-        System.out.println(inputStudent.toString());
+        
         //exercise 1.3 - THE RANDOM WAYYYYYYYY - you can seee the original implementation at the end, below
         for (int i = 0; i < numStudents; i++) {
                     // create the student objects similar to case 1
