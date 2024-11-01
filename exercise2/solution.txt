@@ -1,0 +1,16 @@
+Adrian-Tiberiu Petre
+pa7010@mci4me.at
+Matrikelnummer 52312297
+
+Exercise 1: done 100%  
+Exercise 2: done 100%  
+Exercise 3: done 100% initial implementation is at the bottom of the code, i decided to go for random student generator based on user input
+Exercise 4: done 100% 
+Exercise 5: done 100% for this i had to make sure that some of the randomly generated users are the same (aka have the same ID) 
+Exercise 6: done 100% added an array, a generator for random grades and the function to average them
+Exercise 7: done 100% 
+Exercise 8: done 100% found in \exercise1\target\reports\apidocs\index.html
+Exercise 9: done 100% 
+Exercise 10: done 100%
+----------------------
+Total: 100% 
