@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"at.mci.adrianpetre","l":"Division"},{"p":"at.mci.adrianpetre","l":"OutOfBoundsException"},{"p":"at.mci.adrianpetre","l":"Student"},{"p":"at.mci.adrianpetre","l":"Test"},{"p":"at.mci.adrianpetre","l":"TestStudent"}];updateSearchResults();

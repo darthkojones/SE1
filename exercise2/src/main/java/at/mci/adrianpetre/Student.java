@@ -197,6 +197,10 @@ public class Student {
         return Math.round((sum / grades.size()) * 10) / 10.0f; // round to 1 decimal place
     }
 
+    /**
+     * Creates a new Student object from user input.
+     * @return the new Student object
+     */
     public static Student createStudentFromConsoleInput() {
         Scanner scanner = new Scanner(System.in);
         Student newStudent = new Student(); // Create a new Student object

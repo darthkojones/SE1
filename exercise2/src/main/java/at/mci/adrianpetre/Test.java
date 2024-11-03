@@ -6,15 +6,22 @@ package at.mci.adrianpetre;
 public class Test {
     private int a = 23;
 
+    /*
+     * Display the value of a
+     */
     public void display() {
         System.out.println(this.a);
     }
 }
-
+/*
+ * extended class of Test
+ */
 class ExtendedTest extends Test {
     private String a = "hello world";
 }
-
+/*
+ * main fuction to test the classes
+ */
 class Main {
     public static void main(String[] args) {
         Test t = new Test();

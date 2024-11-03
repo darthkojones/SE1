@@ -14,7 +14,6 @@ public class TestStudent {
     /**
      * Method to display a number of students from an array of students
      * 
-     * @param students Array of students
      */
     public static void displayStudents(Student[] students) {
         Scanner scanner = new Scanner(System.in);
