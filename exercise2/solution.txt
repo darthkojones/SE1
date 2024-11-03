@@ -10,7 +10,9 @@ Exercise 5: done 100% answer is in Test.java file at the bottom
 Exercise 6: done 100% 
 Exercise 7: done 100% i have already done this in exercise 1, except that the variable is called numStudents instead of nrStud
 Exercise 8: done 100% it's implemented, not sure if it fulfils the requirements though -- need to rethink it a bit
-Exercise 9: done 100% 
+Exercise 9: done 100% implemented in the division.java
 Exercise 10: done 100%
 ----------------------
 Total: 100% 
+
+Javadoc found @\exercise2\src\main\java\at\mci\adrianpetre\doc
