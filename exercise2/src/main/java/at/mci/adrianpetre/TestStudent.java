@@ -1,16 +1,47 @@
 package at.mci.adrianpetre;
 
 
-import java.util.Scanner; //needed for the user input
+import java.util.ArrayList; //needed for the user input
 import java.util.Random; //needed for the random
-import java.util.ArrayList; //needed for dynamically removing names from the list
+import java.util.Scanner; //needed for dynamically removing names from the list
 
 /**
  * the main function where we play around with generating random students 
  * @author darth
  */
 public class TestStudent {
-     /**
+
+    /**
+     * Method to display a number of students from an array of students
+     * 
+     * @param students Array of students
+     */
+    public static void displayStudents(Student[] students) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nEnter the number of students to display:");
+        int nrObjsToDisplay;
+        try {
+            nrObjsToDisplay = Integer.parseInt(scanner.nextLine());
+            if (nrObjsToDisplay <0 || nrObjsToDisplay > students.length) {
+                throw new OutOfBoundsException("The number of students to display is out of bounds.");
+            }
+            System.out.println("Displaying " + nrObjsToDisplay + " students:");
+            for (int i = 0; i < nrObjsToDisplay; i++) {
+                System.out.println(students[i].toString());
+            }
+        } catch (OutOfBoundsException e) {
+            System.out.println("Error: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Please enter a valid number (INT)");
+        }
+
+    }
+    
+    
+    
+    
+    
+    /**
      * main method used for testing of the Student class.
      * 
      * @param args Command line arguments
@@ -21,6 +52,12 @@ public class TestStudent {
         System.out.println("\nCreating a new Student via console input:");
         Student inputStudent = Student.createStudentFromConsoleInput();
         // let's create user input to let the user decide how many students to create
+       
+        /*
+         * exercise 2.7 - create a number of students based on user input
+         * just that i changed the name of the variable to numStudents 
+         * instead of the suggested nrStud
+         */
         Scanner scanner = new Scanner(System.in);
         System.out.print("How many students would you like to create? \n");
         int numStudents = Integer.parseInt(scanner.nextLine());  // Convert input to int
@@ -106,9 +143,10 @@ public class TestStudent {
                     }
 
                     // print each student out
-                    System.out.println(students[i].toString());
+                    //System.out.println(students[i].toString());
                 }
-        
+
+        displayStudents(students);
         // exercise 1.4
         // look for students with the same Java proficiency  
         if (numStudents > 1) {
@@ -152,6 +190,7 @@ public class TestStudent {
                 }
             }
         }
+        
     }
 }
 
