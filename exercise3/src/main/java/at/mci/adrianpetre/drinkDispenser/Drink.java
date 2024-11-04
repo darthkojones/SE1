@@ -6,7 +6,7 @@ package at.mci.adrianpetre.drinkDispenser;
  * Tea, Coffee, Water
  */
 public interface Drink {
-
+    
 
 
 
