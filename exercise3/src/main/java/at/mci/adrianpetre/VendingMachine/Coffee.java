@@ -1,10 +1,10 @@
 package at.mci.adrianpetre.VendingMachine;
 
-public class Coffee implements Drink{
-    
+public class Coffee implements Beverage{
+
     @Override
-    public void createDrink() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void createBeverage() {
+        System.out.println("Pouring a Coffee");
     }
     
 
