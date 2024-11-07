@@ -3,7 +3,7 @@ package at.mci.adrianpetre.VendingMachine;
 /*
  * concrete implementation of the coffee class
  */
-public class Coffee implements AbstractBeverage{
+public class Coffee extends Beverage{
 
     private int temperature;
     private int size;

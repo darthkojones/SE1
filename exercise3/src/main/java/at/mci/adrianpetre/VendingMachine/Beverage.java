@@ -1,10 +1,25 @@
 package at.mci.adrianpetre.VendingMachine;
 
-public interface Beverage {
-    void createBeverage();
-    //creates various beverages
-    //the beverages can have addons such as cream, milk, sugar
-    //can be at different temperatures-  cold, warm, hot
-    //can be of different sizes - large, small, medium 
+/*
+ * Defines how the Beverages should look like
+ * 
+ */
+public abstract Beverage {
+    // Define getter and setter methods for the properties
+    void setTemperature(int temperature);
+    int getTemperature();
 
+    void setSize(int size);
+    int getSize();
+
+    void setCream(boolean hasCream);
+    boolean hasCream();
+
+    void setMilk(boolean hasMilk);
+    boolean hasMilk();
+
+    void setSugar(boolean hasSugar);
+    boolean hasSugar();
+
+    String getDescription();
 }

@@ -5,7 +5,7 @@ package at.mci.adrianpetre.VendingMachine;
  * 
  * 
  */
-public abstract class AbstractBeverageFactory {
+public interface class BeverageFactory {
 
     
     abstract void createHotBeverage();
