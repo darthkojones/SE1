@@ -2,7 +2,7 @@ package at.mci.adrianpetre.VendingMachine;
 
 /*
  * Defines how the Beverages should look like
- * 
+ *  this is an abstract class 
  */
 public abstract Beverage {
     // Define getter and setter methods for the properties
