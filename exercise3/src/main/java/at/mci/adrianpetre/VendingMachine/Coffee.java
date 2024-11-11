@@ -3,7 +3,7 @@ package at.mci.adrianpetre.VendingMachine;
 /*
  * concrete implementation of the coffee class
  */
-public class Coffee extends Beverage{
+public class Coffee implements Beverage{
 
     private int temperature;
     private int size;
@@ -67,7 +67,7 @@ public class Coffee extends Beverage{
         String creamDescription = cream ? " with cream " : " without cream";
         String sugarDescription = sugar ? " with sugar " : "without sugar ";
         String milkDescription = milk ? " with milk " : " without milk ";
-        return "This is a " + size + temperature + " Coffee " + creamDescription + milkDescription + sugarDescription ; 
+        return "This is a " + size + " ml "+ temperature + " degrees Coffee " + creamDescription + milkDescription + sugarDescription ; 
     }
 
     /*

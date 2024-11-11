@@ -4,7 +4,7 @@ package at.mci.adrianpetre.VendingMachine;
  * Defines how the Beverages should look like
  *  this is an abstract class 
  */
-public abstract Beverage {
+public interface Beverage {
     // Define getter and setter methods for the properties
     void setTemperature(int temperature);
     int getTemperature();
