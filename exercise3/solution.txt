@@ -3,11 +3,13 @@ pa7010@mci4me.at
 Matrikelnummer 52312297
 
 Exercise 1: done 100%  
-Exercise 2: done 100% implemented the periodic table as a singleton
-Exercise 3: done 100% 
-Exercise 4: done 100% 
+Exercise 2: done 100% implemented the periodic table as a singleton, create element as a factory
+Exercise 3: done 100% implemented the app as a simple factory, with user input for hour & very simple validation
+Exercise 4: done 100% used the builder pattern, I've fallen a bit behind so I've skipped the user input and validation on this
 Exercise 5: done 100%  
 ----------------------
 Total: 100% 
 
+
+also for some reason I get an error saying that the Javadoc can't be created because the classes are not public hmm
 Javadoc found @
