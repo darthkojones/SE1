@@ -7,18 +7,18 @@ public class Main {
         public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("enter what you want masking: \n");
+        System.out.println("enter what you want masking: ");
         String input = scanner.nextLine();
         
-        System.out.println("enter the letters to mask: \n");
+        System.out.println("enter the letters to mask: ");
         String charsToMaskInput = scanner.nextLine();
         char[] charsToMask = charsToMaskInput.replaceAll("\s", "").toCharArray();
 
-        //System.out.println("enter mask symbol: \n");
-        
+        System.out.println("enter mask symbol: ");
+        char maskChar = scanner.nextLine().charAt(0);
         //String input = "Andrea";
         //char[] charsToMask = {'a', 'e', 'z','A'};
-        char maskChar = '*';
+        //char maskChar = '*';
 
         //convert the input string to an InputStream
         InputStream originalInputStream = new java.io.ByteArrayInputStream(input.getBytes());
