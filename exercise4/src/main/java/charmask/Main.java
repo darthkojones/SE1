@@ -12,6 +12,8 @@ public class Main {
         
         System.out.println("enter the letters to mask: ");
         String charsToMaskInput = scanner.nextLine();
+        //thinking about it, could implement some regex bcuz right now 'a' and 'A' are treated differently
+        
         char[] charsToMask = charsToMaskInput.replaceAll("\s", "").toCharArray();
 
         System.out.println("enter mask symbol: ");

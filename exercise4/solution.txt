@@ -1,0 +1,14 @@
+Adrian-Tiberiu Petre
+pa7010@mci4me.at
+Matrikelnummer 52312297
+
+Exercise 1: done 100%  
+Exercise 2: done 100% used the decorator pattern 
+Exercise 3: done 100% 
+Exercise 4: done 100% 
+Exercise 5: done 100%  
+----------------------
+Total: 100% 
+
+
+Javadoc found @
