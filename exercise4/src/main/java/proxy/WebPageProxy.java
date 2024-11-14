@@ -9,7 +9,7 @@ public class WebPageProxy implements WebPage{
     public WebPageProxy(){
         this.blacklist = new HashSet<>();
         //blacklist some websites
-        this.blacklist.add("www.definetlyNotaPornsite.com".toLowerCase());
+        this.blacklist.add("www.definitelyNotaPornsite.com".toLowerCase());
         this.blacklist.add("www.gambleYourLifeSavingsWithCrypto.net".toLowerCase());
         this.blacklist.add("www.cheapViagra.shop".toLowerCase());
 
