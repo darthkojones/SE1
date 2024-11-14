@@ -7,13 +7,15 @@ public class WebPageProxy implements WebPage{
     private Set<String> blacklist;
 
     public WebPageProxy(){
+        this.blacklist = new HashSet<>();
         //blacklist some websites
-        blacklist.add("www.definetlyNotaPornsite.com");
-        blacklist.add("www.gambleYourLifeSavingsWithCrypto.net");
-        blacklist.add("www.cheapViagra.shop");
+        this.blacklist.add("www.definetlyNotaPornsite.com".toLowerCase());
+        this.blacklist.add("www.gambleYourLifeSavingsWithCrypto.net".toLowerCase());
+        this.blacklist.add("www.cheapViagra.shop".toLowerCase());
 
+        }
+    
         ///override the render if site is blocked
-        /// 
         @Override
         public void render(String url){
             if(isBlocked(url)) {
@@ -22,6 +24,10 @@ public class WebPageProxy implements WebPage{
                 realWebPage.render(url);
             }
         }
-    }
 
+        private boolean isBlocked(String url){
+            return blacklist.contains(url);
+        }
 }
+
+
