@@ -9,9 +9,10 @@ public class WebPageProxy implements WebPage{
     public WebPageProxy(){
         this.blacklist = new HashSet<>();
         //blacklist some websites
-        this.blacklist.add("www.definitelyNotaPornsite.com".toLowerCase());
-        this.blacklist.add("www.gambleYourLifeSavingsWithCrypto.net".toLowerCase());
-        this.blacklist.add("www.cheapViagra.shop".toLowerCase());
+        this.blacklist.add("www.definitelyNotaPornsite.com".toLowerCase()); // the only hub site i use is github
+        this.blacklist.add("www.gambleYourLifeSavingsWithCrypto.net".toLowerCase()); //"can you afford to blow this shit? are you that rich?" - Eminem 1999
+        this.blacklist.add("www.cheapViagra.shop".toLowerCase()); //i dont know why i keep getting popups for this
+        this.blacklist.add("www.freedrugs.com".toLowerCase()); //don't be silly drugs arent free, also drugs are bad m'kay
 
         }
     

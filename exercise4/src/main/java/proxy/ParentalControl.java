@@ -8,10 +8,10 @@ public class ParentalControl {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter a URL to visit (or type 'exit' to quit): ");
+            System.out.print("Enter a URL to visit (or type 'quit' to quit): ");
             String url = scanner.nextLine().toLowerCase();
             
-            if (url.equalsIgnoreCase("exit")) {
+            if (url.equalsIgnoreCase("quit")) {
                 System.out.println("Exiting browser.");
                 break;
             }
