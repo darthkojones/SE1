@@ -2,6 +2,9 @@ package at.mci.adrianpetre;
 
 
 import java.util.ArrayList; //needed for the user input
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random; //needed for the random
 import java.util.Scanner; //needed for dynamically removing names from the list
 
@@ -148,6 +151,42 @@ public class TestStudent {
         displayStudents(students);
         // exercise 1.4
         // look for students with the same Java proficiency  
+        
+        //WAIT WE CAN DO BUCKETS YOOOO
+        //CHECK THIS OUT YO
+        //revising the code after 3 weeks 
+        //lets make a HashMap for proficiency buckets
+        //the complexity is now O(n) down from O(n^2)
+        //i am no longer a caveman WOHOO
+
+        Map<Integer, List<Student>> proficiencyBuckets = new HashMap<>();
+
+        // add stuff to the buckets and print matches 
+        System.out.println("\nChecking proficiency between students\n");
+        for (Student student : students) {
+            int proficiency = student.getProficiency();
+
+            // get/create the bucket for this profi
+            List<Student> bucket = proficiencyBuckets.computeIfAbsent(proficiency, k -> new ArrayList<>());
+
+            // check for matches and spit them out
+            for (Student other : bucket) {
+                System.out.println("Student " + student.getName()
+                        + " (ID " + student.getStudentId() + ") and student "
+                        + other.getName() + " (ID " + other.getStudentId() + ") "
+                        + "have the same proficiency of " + proficiency + ".");
+            }
+
+            //it rubs the lotion on the skin or else it gets the hose again
+            //put the fuckin lotion in the bucket!
+             
+            bucket.add(student);// add the student to the bucket
+          
+        }
+
+
+    
+                /*disregard this! 
         if (numStudents > 1) {
             //we need at least 2 students to be able to compare them
             //we should iterate through the students and compare 
@@ -156,6 +195,7 @@ public class TestStudent {
             //basically an O(n^2) algo
             System.out.println("\nChecking and comparing proficiency between all students\n");
 
+            
             // use nested loops to compare proficiency
             for (int i = 0; i < numStudents; i++) {
                 for (int j = i + 1; j < numStudents; j++) {
@@ -170,7 +210,12 @@ public class TestStudent {
                     }
                 }
             }
-        }
+ } */
+
+
+
+
+        
         
         
         // exercise 5
@@ -179,6 +224,7 @@ public class TestStudent {
             System.out.println("\nTesting equality between all students\n");
 
             // inefficient nested loops as before
+            
             for (int i = 0; i < numStudents; i++) {
                 for (int j = i + 1; j < numStudents; j++) {
                     if (students[i].equals(students[j])) {
@@ -187,7 +233,11 @@ public class TestStudent {
                        // System.out.println("Student " + students[i].getName() + " is not the same as student " + students[j].getName() + ".");
                     }
                 }
-            }
+            } 
+
+
+
+
         }
         
     }
