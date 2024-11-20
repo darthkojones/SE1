@@ -9,6 +9,10 @@ package mci.at.adrianpetre;
  * removeObserver
  * notifyObserve
  */
-public class Subject {
-
+public interface Subject {
+    public void registerObserver(Observer obj); 
+    public void removeObserver(Observer obj);  
+    public void notifyObservers(NewsItem Info); 
 }
+
+
