@@ -5,6 +5,7 @@ package mci.at.adrianpetre;
  * this will be implemented by each client
  */
 
+
 public interface Observer {
-    public void update(String news);
+    void update(String news);
 }
