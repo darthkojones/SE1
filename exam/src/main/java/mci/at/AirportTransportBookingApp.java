@@ -1,3 +1,9 @@
+/*
+ * Adrian-Tiberiu Petre
+ * pa7010@mci4me.at
+ * Matrikelnummer 52312297
+ */
+
 package mci.at;
 
 import java.util.Scanner;

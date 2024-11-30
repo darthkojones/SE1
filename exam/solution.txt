@@ -1,0 +1,11 @@
+Adrian-Tiberiu Petre
+pa7010@mci4me.at
+Matrikelnummer 52312297
+
+Exercise 1: done 100% used Factory for transport and Strategy for payment 
+Exercise 2: done 100% explanation at the bottom of the main file
+
+----------------------
+Total: 100% 
+
+
